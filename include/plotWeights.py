@@ -6,6 +6,7 @@ import matplotlib as mpl
 import matplotlib.pyplot as plt
 import matplotlib.cm as cm
 import matplotlib.ticker as ticker
+from matplotlib import rc
 import pdb
 import math
 import copy
@@ -17,6 +18,8 @@ mpl.use('Agg')
 plt.rcParams.update({'font.size': 10 })
 plt.rcParams['figure.constrained_layout.use'] = True
 
+rc('font', **{'family': 'serif', 'serif': ['Computer Modern']})
+rc('text', usetex=True)
 
 # Definition of Constants
 M_E = 9.109e-31                      # Electron rest mass in kg
