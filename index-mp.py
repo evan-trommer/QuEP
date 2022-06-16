@@ -12,7 +12,7 @@ import include.showFullEvolution as showEvol_F
 import include.makeFullAnimation as makeFullAni
 import include.viewProbe as viewProbe
 import include.writeFullEvolData as writeHist
-import include.weighting_masks_function as weightmaskFunc
+import include.weighting_masks_function_rprism as weightmaskFunc
 import include.plotWeights as plotWeights
 import include.findFocalY as findFocalY
 import include.plot2DTracks as plot2D
