@@ -43,7 +43,21 @@ If you are using weights for the probe, you must create a weighting input file s
 python index-mp.py input.example input.example-weights
 ```
 
+If you are plotting using multiple masks (or "dynamic masks") then use the `bandAnalysis.py` file to do post-processing analysis. The appropriate plotting macros are included in this file. This will eventually be merged into a single file. 
+
+The scripts for putting images into an animation are temporarily disabled in `bandAnalysis.py`. For now, it is best to run `movieWriter.py` separately.  
+
 Plotting scripts MUST be edited based on your probe initial conditions, otherwise you might not see anything!
+
+### Masking Procedures 
+
+There are two main masking options: using longitudinal (xi direction) masks, or vertical (y direction) masks. Ability to mask in the transverse (x direction) has not yet been fully implemented, so *always* leave `useMasks_x` as `FALSE` until further notice. 
+
+For both masking directions, there are three types of dynamic masking protocals you can call: curtain masks, moving masks and moving bands. The curtain mask script creates a mask with one edge that continuously moves in a specified direction. The moving mask has both edges of the mask dynamically update as the code runs to create a masking band whose initial position changes with each iteration of the code. The moving band creates two masks, a higher and lower mask, where the higher mask has it's lower edge updated with each iteration, and the lower mask has its upper edge updated. It is important that you only use one of these procedures at a time. Note also that these procedures only work for a **single** mask - if you wish to use multiple masks (e.g. to simulate a grid pattern) you will need to update `weighting_masks_function_rprism_dynamic.py`.
+
+The two numerical variables that are important while doing dynamic masking is `mask_step` and `nMasks`. `mask_step` gives the step size for changing the mask. `nMasks` tells the code how many times to loop the plotting scripts, and should be set appropriately to get the number of different masking configurations. E.g. if you want to create a curtain mask whose edge starts at y=0.9 and you want to bring it down to y=0.0 in steps of 0.1, set `mask_step = 0.1` and `nMasks = 10`.
+
+While using the dynamic masking procedures, the only plotting boolean values that should be set to TRUE in `bandAnalysis.py` are `makeFullAnimation` and the appropriate weight plotting boolean.
 
 ### Repository Structure 
 
@@ -69,7 +83,7 @@ The `plotting` branch is used as a working branch.
 
 `sim.EField` and `sim.BForce` refers to a subprogram from `/include/simulations/`, where each file contains *unique* functions for reading out data from pre-generated electromagnetic field files; plasma density, frequency, and time values; boundary conditions of the plasma cell; and the `EField`, `BForce`, and `BField` functions. 
 
-To add a new set of simulation data, create a file within the simulations directory, then add the initalization condition to `main.py` (~Line 74), as well as any plotting scripts in use. The new file absolutely MUST include the functions `getTime`, `getBoundCond`, `EField`, and `BForce`. Other functions, such as `getPlasDensity` and `getPlasFreq`, are used in plotting results, but not running QuEP itself. 
+To add a new set of simulation data, create a file within the simulations directory, then add the initalization condition to `main.py` (near Line 74), as well as any plotting scripts in use. The new file absolutely MUST include the functions `getTime`, `getBoundCond`, `EField`, and `BForce`. Other functions, such as `getPlasDensity` and `getPlasFreq`, are used in plotting results, but not running QuEP itself. 
 
 ### Comments
 
@@ -77,18 +91,21 @@ To add a new set of simulation data, create a file within the simulations direct
 
 * Because this is a numerical simulation, there is no exact way to verify if your output probe is "correct"! We can only decide whether what we see aligns with our physics intuition. 
 
-* As noted before, there are limitations to the 3D probes feature as you will quickly run out of memory on both personal and supercomputers with high density probes
+* As noted before, there are limitations to the 3D probes feature as you will quickly run out of memory on both personal and supercomputers with high density probes.
+
 ### Requirements
 This simulation uses Python 3.0, and requires the packages `h5py`, `importlib`, `numpy`, and `multiprocessing`. Plots require `matplotlib`.
 
 ### Contact
-Contact Nicholas Manzella (nick.manzella31[at]gmail.com) or Marisa Petrusky (marisapetrusky[at]gmail.com) for questions about this code. Source code can be found at https://github.com/SBU-PAG/QuEP/
+Contact Evan Trommer (evtrommer[at]gmail.com), Nicholas Manzella (nick.manzella31[at]gmail.com) or Marisa Petrusky (marisapetrusky[at]gmail.com) for questions about this code. Source code can be found at https://github.com/SBU-PAG/QuEP/
 
 #### Theses
 For more information on this project, you can read our senior thesises here:
+
+Evan Trommer (Stony Brook University, 2023): *To be uploaded soon.*
 
 Nick Manzella (Stony Brook University, 2022): [Development of methods for modeling the interactions of plasma wakefields with a realistic 3D electron probe](https://1drv.ms/b/s!AkeL_dqkZf-PieYi7_ddYZSPNQklPg?e=ayKaUf)
 
 Marisa Petrusky (Stony Brook University, 2021): [Picturing Plasma: Studying the Simulated Transverse Probing of Laser Wakefield Accelerators](https://www.researchgate.net/publication/351853356_Picturing_Plasma_Studying_the_Simulated_Transverse_Probing_of_Laser_Wakefield_Accelerators)
 
-Audrey Farrell (Stony Brook University, 2020): Simulating beam induced ionization-injectionin plasma wakefield accelerators (*Email Nick or Marisa for copy*)
+Audrey Farrell (Stony Brook University, 2020): Simulating beam induced ionization-injectionin plasma wakefield accelerators (*Email Evan or Marisa for copy*)
