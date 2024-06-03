@@ -1,0 +1,19 @@
+#!/bin/bash
+#
+#SBATCH --job-name=QuEP-etrommer-test
+#SBATCH --output=blowout_test.txt
+#SBATCH --ntasks-per-node=28
+#SBATCH --nodes=16
+#SBATCH --time=12:00:00
+#SBATCH -p medium-28core
+#SBATCH --mail-type=BEGIN,END
+#SBATCH --mail-user=evan.trommer@stonybrook.edu
+
+module load shared
+module load anaconda/3
+
+cd /gpfs/home/etrommer/QuEP/
+
+python main.py input.new-tests.probetest_2
+
+mv "wakefield_test2.npz" data/
