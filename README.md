@@ -102,7 +102,7 @@ Contact Evan Trommer (evtrommer[at]gmail.com), Nicholas Manzella (nick.manzella3
 #### Theses
 For more information on this project, you can read our senior thesises here:
 
-Evan Trommer (Stony Brook University, 2023): *To be uploaded soon.*
+Evan Trommer (Stony Brook University, 2023): [Transverse Probing of Laser-Driven Plasma Wakefields Using Relativistic Electrons](https://github.com/evan-trommer/Bachelor-Thesis)
 
 Nick Manzella (Stony Brook University, 2022): [Development of methods for modeling the interactions of plasma wakefields with a realistic 3D electron probe](https://1drv.ms/b/s!AkeL_dqkZf-PieYi7_ddYZSPNQklPg?e=ayKaUf)
 
