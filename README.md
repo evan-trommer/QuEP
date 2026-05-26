@@ -97,19 +97,15 @@ To add a new set of simulation data, create a file within the simulations direct
 This simulation uses Python 3.0, and requires the packages `h5py`, `importlib`, `numpy`, and `multiprocessing`. Plots require `matplotlib`.
 
 ### Contact
-Contact Evan Trommer (evtrommer[at]gmail.com), Nicholas Manzella (nick.manzella31[at]gmail.com) or Marisa Petrusky (marisapetrusky[at]gmail.com) for questions about this code. Source code can be found at https://github.com/SBU-PAG/QuEP/
+All work presented in this repository was conducted under the supervision of Navid Vafaei-Najafabadi (navid.vafaei-najafabadi[at]stonybrook.edu). Contact Nikhil Keer (nkeer694[at]mit.edu), Evan Trommer (evtrommer[at]gmail.com), Nicholas Manzella (nick.manzella31[at]gmail.com) or Marisa Petrusky (marisapetrusky[at]gmail.com) for questions about this code. Source code can be found at https://github.com/SBU-PAG/QuEP/
 
 #### Theses
 For more information on this project, you can read our senior thesises here:
 
-<<<<<<< HEAD
 Evan Trommer (Stony Brook University, 2023): [Transverse Probing of Laser-Driven Plasma Wakefields Using Relativistic Electrons](https://github.com/evan-trommer/Bachelor-Thesis)
-=======
-Evan Trommer (Stony Brook University, 2023): *To be uploaded soon.*
->>>>>>> nikhil-repo/main
 
 Nick Manzella (Stony Brook University, 2022): [Development of methods for modeling the interactions of plasma wakefields with a realistic 3D electron probe](https://1drv.ms/b/s!AkeL_dqkZf-PieYi7_ddYZSPNQklPg?e=ayKaUf)
 
 Marisa Petrusky (Stony Brook University, 2021): [Picturing Plasma: Studying the Simulated Transverse Probing of Laser Wakefield Accelerators](https://www.researchgate.net/publication/351853356_Picturing_Plasma_Studying_the_Simulated_Transverse_Probing_of_Laser_Wakefield_Accelerators)
 
-Audrey Farrell (Stony Brook University, 2020): Simulating beam induced ionization-injectionin plasma wakefield accelerators (*Email Evan or Marisa for copy*)
+Audrey Farrell (Stony Brook University, 2020): Simulating beam induced ionization-injectionin plasma wakefield accelerators.
