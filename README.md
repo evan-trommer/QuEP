@@ -63,6 +63,8 @@ While using the dynamic masking procedures, the only plotting boolean values tha
 
 The `master` branch contains the most up-to-date code.
 
+The `version-2.1` branch contains the updated version of the code, as left by Evan Trommer and Nikhil Keer. This version of the code includes dynamic masking algorithms, updated multiprocessing libraries, tests for longitudinal probing, and options for including simulations from PBPIC.
+
 The `version-2.0` branch contains the second complete version of the code, as left by Nick Manzella. This version of the code implements weighting in the y and xi directions, masking in the y and xi directions, an arbitrary group velocity feature, and the ability to create 3D probes with size limitations at larger numbers of particles due to memory issues. 
 
 The `version-1.0` branch contains the first complete version of the code, as left by Marisa Petrusky. No output files are saved in this version; plots are immediately generated. Multiprocessing is also not implemented here.
